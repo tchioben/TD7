@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+package src;
+
 import java.util.HashMap;
 
 /**
@@ -13,12 +14,12 @@ public class FabLigne {
 
 	private static FabLigne INSTANCE = null;
 	
-	private HashMap<Integer,ArrayList<Ligne>> lines;
+	private HashMap<Integer,Ligne> lines;
 	
 	public Integer compteur;
 	
 	public FabLigne(){
-		this.setLines(new HashMap<Integer,ArrayList<Ligne>>()); 
+		this.setLines(new HashMap<Integer,Ligne>()); 
 		this.compteur =1;
 	}
 	
@@ -30,8 +31,8 @@ public class FabLigne {
 	}
 
 	public Ligne addLine(User user, float montant,String commentaire){
-		Ligne l = new Ligne(compteur++,user,montant,commentaire);
-		this.lines.put(user.hashCode(), l);	
+		Ligne l = new Ligne(compteur,user,montant,commentaire);
+		this.lines.put(compteur++, l);	
 		return l;
 	}
 	
@@ -48,10 +49,10 @@ public class FabLigne {
 	}
 
 	/**
-	 * @param lines the lines to set
+	 * @param hashMap the lines to set
 	 */
-	public void setLines(HashMap<Integer,Ligne> lines) {
-		this.lines = lines;
+	public void setLines(HashMap<Integer, Ligne> hashMap) {
+		this.lines = hashMap;
 	}
 	
 	

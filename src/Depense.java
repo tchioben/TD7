@@ -1,11 +1,5 @@
-/**
- * 
- */
+package src;
 
-/**
- * @author Tchioben
- *
- */
 public class Depense {
 
 	private float montant;

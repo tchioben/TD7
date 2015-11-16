@@ -1,3 +1,5 @@
+package src;
+
 import java.util.ArrayList;
 
 
@@ -46,6 +48,10 @@ public class User {
 	 */
 	public void setListeLigne(ArrayList<Integer> listeLigne) {
 		this.listeLigne = listeLigne;
+	}
+	
+	public void addLigne(Ligne ligne){
+		this.listeLigne.add(ligne.getId());
 	}
 	
 }

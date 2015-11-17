@@ -78,6 +78,13 @@ public class Ligne {
 	public void setCommentaire(String commentaire) {
 		this.commentaire = commentaire;
 	}
+
+
+
+	public String toString() {
+		return this.id+";"+this.getUser().toString()+";"+this.montant+";"+this.commentaire;
+		
+	}
 	
 	
 	

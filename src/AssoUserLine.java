@@ -12,7 +12,7 @@ public class AssoUserLine {
 		u.addLigne(li);
 	}
 	
-	public static ArrayList<Ligne> getLigne(String name){
+	public static ArrayList<Ligne> getLignes(String name){
 		FabLigne fl = FabLigne.getInstance();
 		FabUser fu = FabUser.getINSTANCE();
 		User u = fu.getUser(name);
@@ -24,5 +24,20 @@ public class AssoUserLine {
 		return lLigne;
 	}
 	
+	public static void imprimerLignes(String name){
+		ArrayList<Ligne> liste = getLignes(name);
+		for (Ligne ligne: liste){
+			System.out.println(ligne.toString());
+		}
+	}
+	
+	public static String toStringLignes(String name){
+		ArrayList<Ligne> liste = getLignes(name);
+		String mot= "";
+		for (Ligne ligne: liste){
+			mot += ligne.toString()+"\n";
+		}
+		return mot;
+	}
 	
 }

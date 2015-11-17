@@ -54,4 +54,8 @@ public class User {
 		this.listeLigne.add(ligne.getId());
 	}
 	
+	public String toString(){
+		return this.getNom();
+	}
+	
 }

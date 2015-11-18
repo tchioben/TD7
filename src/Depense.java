@@ -12,7 +12,11 @@ public class Depense {
 		this.setLine(line);
 		}
 	
-	
+	public String toString(){
+		String s ="";
+		s += this.line.getId()+";"+this.line.getUser().toString()+";"+this.montant;		
+		return s;
+	}
 
 
 	/**

@@ -14,27 +14,38 @@ public class AssoDepenseLine {
 	
 	public static void addDepense(Integer idLigne, float montantDepense){
 		FabLigne fl = FabLigne.getInstance();
-		FabDepense fd = FabDepense.getInstance();
-		fd.addDepense(montantDepense, fl.getLine(idLigne));
+		Ligne  ligne = fl.getLine(idLigne);
+		ligne.getMontant();
+		sommeDepense(idLigne);
+		//if (ligne.getMontant()-(sommeDepense(idLigne)+montantDepense)>=0){
+		//	FabDepense fd = FabDepense.getInstance();
+		//	fd.addDepense(montantDepense, fl.getLine(idLigne));
+	//	}
+		//else {System.out.println("pas assez d'argent sur le compte");}
 	}
 	
-	public static ArrayList<Depense> getLignes(String name){
-		FabLigne fl = FabLigne.getInstance();
-		FabUser fu = FabUser.getINSTANCE();
-		User u = fu.getUser(name);
-		ArrayList<Integer> lInt = u.getListeLigne();
-		ArrayList<Ligne> lLigne= new ArrayList<Ligne>();
-		for (Integer n: lInt){
-			lLigne.add(fl.getLine(n));
-		}
-		return lLigne;
+	public static ArrayList<Depense> getDepenses(Integer idLigne){
+		FabDepense fb = FabDepense.getInstance();
+		ArrayList<Depense> lDepense = fb.getListeDepense(idLigne);
+		return lDepense;
 	}
 	
 	
 	public static void toStringDepenses(Integer idLigne){
-		FabDepense fd = FabDepense.getInstance();
-		ArrayList<Depense> dep = fd.getDepenses(idLigne);
-		
+		ArrayList<Depense> dep = getDepenses(idLigne);
+		for ( Depense d : dep){
+			d.toString();
+		}
+	}
+	
+	public static float sommeDepense(Integer idLigne){
+		float somme= 0;
+		ArrayList<Depense> depences = getDepenses(idLigne);
+		for ( Depense d : depences){
+			System.out.println(d.toString());
+			somme += d.getMontant();
+		}
+		return somme;
 	}
 	
 	

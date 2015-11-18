@@ -28,16 +28,20 @@ public class FabDepense {
 	}
 	
 	public ArrayList<Depense> getListeDepense(Integer idLigne){
+
+		if (getListeDepense(idLigne)==null){
+			this.dep.put(idLigne, new ArrayList<Depense>());
+		}
 		return dep.get(idLigne);
 	}
 	
 	public void addDepense(float montant, Ligne line){
-		if (getListeDepense(line.)==null){
-			
+		if (getListeDepense(line.getId())==null){
+			this.dep.put(line.getId(), new ArrayList<Depense>());
 		}
 		
-		Depense dep = new Depense(line,montant);
-		this.dep.put(line.getId(), dep);
+		Depense depense = new Depense(line,montant);
+		this.dep.get(line.getId()).add(depense)	;
 	}
 	
 }

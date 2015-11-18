@@ -10,6 +10,7 @@ public class AssoUserLine {
 		User u = fu.addUser(name);
 		Ligne li= fl.addLine(u, montant, commentaire);
 		u.addLigne(li);
+		System.out.println(li.getId());
 	}
 	
 	public static ArrayList<Ligne> getLignes(String name){
